@@ -1,10 +1,24 @@
 import "./styles.css";
+import pokemons from "./data";
+
+function Pokemon(props) {
+  const { name, type, averageWeight, image } = props.poke;
+  return (
+    <div>
+      <p>{name}</p>
+      <p>{type}</p>
+      <p>
+        Avg weight: {averageWeight.value} {averageWeight.measurementUnit}
+      </p>
+      <img src={image} alt={`${name} animated gif`} />
+    </div>
+  );
+}
 
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <Pokemon poke={pokemons[0]} />
     </div>
   );
 }
