@@ -6,7 +6,6 @@
 .pokemon-container {
   border: 1px solid rgb(102, 102, 102);
   display: flex;
-  width: 40%;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
