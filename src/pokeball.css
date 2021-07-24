@@ -1,0 +1,38 @@
+.pokeball-container {
+  position: relative;
+
+}
+.center-on-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  overflow: hidden;
+}
+.pokeball {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: black;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.pokeball__button {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  width: 60px;
+  height: 60px;
+  background: black;
+  border-radius: 50%;
+  border: 20px transparent;
+  z-index: 10;
+}
+.pokeball__middle {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 20px;
+  background: transparent;
+}

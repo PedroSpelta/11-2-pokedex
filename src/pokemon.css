@@ -8,7 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+  width: 220px;
+  height: 160px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index:-2;
 }
 
 .pokedex-container {
@@ -16,4 +21,13 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+}
+
+.poke-ball {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.3;
+  transform: translateX(50%) translateY(20%);
+  z-index: -1;
 }
