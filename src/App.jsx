@@ -18,12 +18,14 @@ function Pokemon(props) {
           const gif =
             json.sprites.versions['generation-v']['black-white'].animated
               .front_default;
+              const type2 = (json.types[1] !== undefined) ? json.types[1].type.name : null;
           // const spirte =
           // const local = localStorage.setItem()
           setPokeInfo({
             id: json.id,
             sprite: gif,
             type: json.types[0].type.name,
+            type2: type2,
             weight: json.weight,
           });
         });
@@ -36,8 +38,9 @@ function Pokemon(props) {
     >
       <img className="poke-ball" src={pokeball} alt="test" />
       <div className="pokemon-info">
-        <p>{name}</p>
+        <p>{name[0].toUpperCase()}{name.slice(1)}</p>
         <p>{pokeInfo.type}</p>
+        <p>{pokeInfo.type2}</p>
         <p>Avg weight: {pokeInfo.weight}</p>
       </div>
       <div className="pokemon-gif">
