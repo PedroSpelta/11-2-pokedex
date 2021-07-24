@@ -18,7 +18,8 @@ function Pokemon(props) {
           const gif =
             json.sprites.versions['generation-v']['black-white'].animated
               .front_default;
-              const type2 = (json.types[1] !== undefined) ? json.types[1].type.name : null;
+          const type2 =
+            json.types[1] !== undefined ? json.types[1].type.name : null;
           // const spirte =
           // const local = localStorage.setItem()
           setPokeInfo({
@@ -37,11 +38,17 @@ function Pokemon(props) {
       style={{ backgroundColor: element[pokeInfo.type] }}
     >
       <img className="poke-ball" src={pokeball} alt="test" />
+      <div className="pokemon-id-div">
+        <span className="pokemon-id"># {pokeInfo.id}</span>
+      </div>
       <div className="pokemon-info">
-        <p>{name[0].toUpperCase()}{name.slice(1)}</p>
-        <p>{pokeInfo.type}</p>
-        <p>{pokeInfo.type2}</p>
-        <p>Avg weight: {pokeInfo.weight}</p>
+        <p className="pokemon-name">
+          {name[0].toUpperCase()}
+          {name.slice(1)}
+        </p>
+        <p className="pokemon-type">{pokeInfo.type}</p>
+        <p className="pokemon-type">{pokeInfo.type2}</p>
+        <p>{pokeInfo.weight} kg</p>
       </div>
       <div className="pokemon-gif">
         <img src={pokeInfo.sprite} alt={`${name} animated gif`} />
