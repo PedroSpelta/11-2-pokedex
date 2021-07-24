@@ -38,9 +38,7 @@ function Pokemon(props) {
       style={{ backgroundColor: element[pokeInfo.type] }}
     >
       <img className="poke-ball" src={pokeball} alt="test" />
-      <div className="pokemon-id-div">
-        <span className="pokemon-id"># {pokeInfo.id}</span>
-      </div>
+      <p className="pokemon-id"># {pokeInfo.id}</p>
       <div className="pokemon-info">
         <p className="pokemon-name">
           {name[0].toUpperCase()}
