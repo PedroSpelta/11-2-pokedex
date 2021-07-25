@@ -1,5 +1,6 @@
 import './styles.css';
 import './pokemon.css';
+import './modal.css';
 import { useState, useEffect } from 'react';
 import pokemons from './data';
 import element from './elements';
@@ -71,10 +72,26 @@ function Pokedex() {
   ));
 }
 
+function Modal({showModal, setShowModal}) {
+  return (showModal 
+  ? 
+  <div className='modal-background'>
+    <h1>modal text</h1> 
+  </div>
+  : null
+)
+}
+
 export default function App() {
+  const [showModal, setShowModal] = useState(false);
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
   return (
     <div className="pokedex-container">
       <Pokedex />
+      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <button onClick={openModal}>show modal</button>
     </div>
   );
 }
