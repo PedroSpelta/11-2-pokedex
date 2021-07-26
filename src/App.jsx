@@ -40,6 +40,12 @@ function Pokemon(props) {
             height: json.height / 10,
             ability1: json.abilities[0].ability.name,
             ability2: ability2,
+            hp: json.stats[0].base_stat,
+            atk: json.stats[1].base_stat,
+            def: json.stats[2].base_stat,
+            spatk: json.stats[3].base_stat,
+            spdef: json.stats[4].base_stat,
+            speed: json.stats[5].base_stat,
           });
         });
     }
@@ -100,7 +106,14 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
     labels: 'HP DEF SP.DEF SPEED SP.ATK ATK'.split(' '),
     datasets: [
       {
-        data: [2, 9, 3, 5, 2, 3],
+        data: [
+          actualPokemon.hp,
+          actualPokemon.def,
+          actualPokemon.spdef,
+          actualPokemon.speed,
+          actualPokemon.spatk,
+          actualPokemon.atk,
+        ],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
@@ -110,10 +123,24 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
 
   const options = {
     plugins: {
-    legend: {
-      display: false
-    }},
-    maintainAspectRatio:false,
+      legend: {
+        display: false,
+      },
+    },
+    maintainAspectRatio: false,
+    scale: {
+      beginAtZero: true,
+      min: 0,
+      max: 255,
+      stepSize: 100,
+    },
+    scales: {
+      r: {
+        ticks: {
+          display: false,
+        }
+      }
+    }
   };
 
   const closeModal = (e) => {
