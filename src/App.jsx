@@ -82,12 +82,11 @@ function Pokedex({ showModal, setActualPokemon }) {
     // audio.play();
   });
   return pokemons.map((pokemon) => (
-    <div>
+    <div key={pokemon.pokemon_species.name}>
       <Pokemon
         setActualPokemon={setActualPokemon}
         showModal={showModal}
         name={pokemon.pokemon_species.name}
-        key={pokemon.pokemon_species.name}
       />
     </div>
   ));
@@ -116,24 +115,33 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
               <h1 className="modal-pokemon-name">
                 {actualPokemon.name.toUpperCase()}
               </h1>
-              <p
-                className="modal-pokemon-type"
-                style={{ backgroundColor: element[actualPokemon.type] }}
-              >
-                {actualPokemon.type.toUpperCase()}
-              </p>
+              <div className="modal-type-div">
+                <p
+                  className="modal-pokemon-type"
+                  style={{ backgroundColor: element[actualPokemon.type] }}
+                >
+                  {actualPokemon.type.toUpperCase()}
+                </p>
+                {actualPokemon.type2 ? (
+                  <p
+                    className="modal-pokemon-type"
+                    style={{ backgroundColor: element[actualPokemon.type2] }}
+                  >
+                    {actualPokemon.type2.toUpperCase()}
+                  </p>
+                ) : null}
+              </div>
               <p className="modal-pokemon-id">{actualPokemon.id}</p>
             </div>
           </div>
           <div className="modal-pokemon-status">
             <p className="modal-poke-s-name">Nº{actualPokemon.id}</p>
-            <p className="modal-poke-sudo-name">sudo name</p>
-            <p className="modal-poke-t-abil">Habilidades</p>
-            <p className="modal-poke-h1">{actualPokemon.ability1}</p>
-            <p className="modal-poke-h1">{actualPokemon.ability2}</p>
+            <div className="modal-abilities-div">
+              <p className="modal-info-title">Abilities:</p>
+              <p className="modal-info-text">{actualPokemon.ability1}</p>
+              <p className="modal-info-text">{actualPokemon.ability2}</p>
+            </div>
             <div className="modal-hw-div">
-
-
               <div className="modal-hw-sub-div">
                 <p className="modal-info-title">Height:</p>
                 <p className="modal-info-text">{actualPokemon.height} m</p>
@@ -142,16 +150,17 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
                 </p>
               </div>
 
-<div className='modal-hw-spacer'/>
+              <div className="modal-hw-spacer" />
 
-        <div className="modal-hw-sub-div">
+              <div className="modal-hw-sub-div">
                 <p className="modal-info-title">Weight:</p>
-                <p className="modal-info-text">{actualPokemon.weight} <keygen /></p>
+                <p className="modal-info-text">
+                  {actualPokemon.weight} kg
+                </p>
                 <p className="modal-info-text">
                   {(actualPokemon.weight * 2.205).toFixed(1)} lbs
                 </p>
               </div>
-
             </div>
           </div>
         </div>
