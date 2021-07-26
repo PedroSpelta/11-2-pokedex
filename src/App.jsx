@@ -6,6 +6,8 @@ import pokemons from './data';
 import element from './elements';
 import pokeball from './images/pokeball.png';
 import filter from './images/filter.png';
+import { Radar } from 'react-chartjs-2';
+import { functionTypeParam } from '@babel/types';
 
 function Pokemon(props) {
   const { name, showModal, setActualPokemon } = props;
@@ -94,6 +96,25 @@ function Pokedex({ showModal, setActualPokemon }) {
 
 function Modal({ showModal, setShowModal, actualPokemon }) {
   const modalRef = useRef();
+  const data = {
+    labels: 'HP DEF SP.DEF SPEED SP.ATK ATK'.split(' '),
+    datasets: [
+      {
+        data: [2, 9, 3, 5, 2, 3],
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    plugins: {
+    legend: {
+      display: false
+    }},
+    maintainAspectRatio:false,
+  };
 
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
@@ -154,15 +175,16 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
 
               <div className="modal-hw-sub-div">
                 <p className="modal-info-title">Weight:</p>
-                <p className="modal-info-text">
-                  {actualPokemon.weight} kg
-                </p>
+                <p className="modal-info-text">{actualPokemon.weight} kg</p>
                 <p className="modal-info-text">
                   {(actualPokemon.weight * 2.205).toFixed(1)} lbs
                 </p>
               </div>
             </div>
           </div>
+        </div>
+        <div className="modal-chart">
+          <Radar data={data} width={160} height={160} options={options} />
         </div>
       </div>
     </div>
