@@ -7,7 +7,6 @@ import element from './elements';
 import pokeball from './images/pokeball.png';
 import filter from './images/filter.png';
 import { Radar } from 'react-chartjs-2';
-import { functionTypeParam } from '@babel/types';
 
 function Pokemon(props) {
   const { name, showModal, setActualPokemon } = props;
@@ -126,6 +125,9 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
       legend: {
         display: false,
       },
+      pointLabels: {
+        fontSize: 40,
+      }
     },
     maintainAspectRatio: false,
     scale: {
@@ -138,9 +140,16 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
       r: {
         ticks: {
           display: false,
+        },
+        pointLabels: {
+          font: {
+            size: 13,
+            weight: 'bold',
+          }
         }
       }
-    }
+    },
+    responsive: false,
   };
 
   const closeModal = (e) => {
@@ -211,7 +220,35 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
           </div>
         </div>
         <div className="modal-chart">
-          <Radar data={data} width={160} height={160} options={options} />
+          <Radar className='modal-radar' data={data} width={200} height={200} options={options} />
+          <div className='modal-chart-status'>
+            <div>
+            <p className='modal-stat-title'>HP: </p>
+            <p className='modal-stat-num'>{actualPokemon.hp}</p>
+            </div>
+            <div>
+            <p className='modal-stat-title'>ATTACK:</p>
+            <p className='modal-stat-num'>{actualPokemon.atk}</p>
+
+            </div>
+            <div>
+            <p className='modal-stat-title'>DEFFENSE:</p>
+            <p className='modal-stat-num'>{actualPokemon.def}</p>
+
+            </div>
+            <div>
+            <p className='modal-stat-title'>SP.ATK:</p>
+            <p className='modal-stat-num'>{actualPokemon.spatk}</p>
+            </div>
+            <div>
+            <p className='modal-stat-title'>SP.DEF:</p>
+            <p className='modal-stat-num'>{actualPokemon.spdef}</p>           
+            </div>
+            <div>
+            <p className='modal-stat-title'>SPEED:</p>
+            <p className='modal-stat-num'>{actualPokemon.speed}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

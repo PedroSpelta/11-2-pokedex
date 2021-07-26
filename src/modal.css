@@ -11,7 +11,7 @@
 .modal-div {
   background-color: white;
   width: 400px;
-  height: 400px;
+  height: 450px;
 }
 
 .modal-pokemon-img {
@@ -140,4 +140,36 @@
 
 .modal-type-div {
   display: flex;
+}
+
+.modal-chart {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  justify-content: space-between;
+}
+
+.modal-chart-status {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  width: max-content;
+}
+
+.modal-chart-status div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-stat-title {
+  font-weight: bold;
+  margin: 1px 4px;
+}
+
+.modal-stat-num {
+  margin: 1px 20px 1px 0;
+}
+
+.modal-radar {
+  margin-left: 20px;
 }
