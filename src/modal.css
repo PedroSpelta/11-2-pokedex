@@ -59,8 +59,9 @@
 }
 
 .modal-pokemon-type {
+  font-family: 'Montserrat', sans-serif;
   border: 1.5px solid black;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -75,10 +76,55 @@
   display: flex;
 }
 
+.modal-pokemon-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .filter {
   position: absolute;
   width: 180px;
   height: 180px;
   opacity: 0.05;
   margin: 2px;
+}
+
+.modal-poke-s-name {
+  color: #5E5E5E;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
+
+.modal-hw-div {
+  display: flex;
+  justify-content: center; 
+  width: 100%;
+}
+
+.modal-hw-sub-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-info-title {
+  color: white;
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modal-info-text {
+  color: #666666;
+  font-family: Verdana;
+  font-weight: 500;
+}
+
+.modal-hw-spacer {
+  border-left: #666666 solid 1px;
+  margin: 10px 20px 0px 20px;
+  height: 40px;
 }

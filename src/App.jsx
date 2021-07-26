@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import pokemons from './data';
 import element from './elements';
 import pokeball from './images/pokeball.png';
-import filter from './images/filter.png'
+import filter from './images/filter.png';
 
 function Pokemon(props) {
   const { name, showModal, setActualPokemon } = props;
@@ -22,6 +22,10 @@ function Pokemon(props) {
               .front_default;
           const type2 =
             json.types[1] !== undefined ? json.types[1].type.name : null;
+          const ability2 =
+            json.abilities[1] !== undefined
+              ? json.abilities[1].ability.name
+              : null;
           // const spirte =
           // const local = localStorage.setItem()
           setPokeInfo({
@@ -30,7 +34,10 @@ function Pokemon(props) {
             sprite: gif,
             type: json.types[0].type.name,
             type2: type2,
-            weight: json.weight,
+            weight: json.weight / 10,
+            height: json.height / 10,
+            ability1: json.abilities[0].ability.name,
+            ability2: ability2,
           });
         });
     }
@@ -104,7 +111,7 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
               src={`https://cdn.traction.one/pokedex/pokemon/${actualPokemon.id}.png`}
               alt=""
             />
-            <img src={filter} className='filter' alt="filtro" />
+            <img src={filter} className="filter" alt="filtro" />
             <div className="modal-pokemon-visual-info">
               <h1 className="modal-pokemon-name">
                 {actualPokemon.name.toUpperCase()}
@@ -119,7 +126,33 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
             </div>
           </div>
           <div className="modal-pokemon-status">
-            <p>atk def etc</p>
+            <p className="modal-poke-s-name">Nº{actualPokemon.id}</p>
+            <p className="modal-poke-sudo-name">sudo name</p>
+            <p className="modal-poke-t-abil">Habilidades</p>
+            <p className="modal-poke-h1">{actualPokemon.ability1}</p>
+            <p className="modal-poke-h1">{actualPokemon.ability2}</p>
+            <div className="modal-hw-div">
+
+
+              <div className="modal-hw-sub-div">
+                <p className="modal-info-title">Height:</p>
+                <p className="modal-info-text">{actualPokemon.height} m</p>
+                <p className="modal-info-text">
+                  {(actualPokemon.height * 3.281).toFixed(0)}'
+                </p>
+              </div>
+
+<div className='modal-hw-spacer'/>
+
+        <div className="modal-hw-sub-div">
+                <p className="modal-info-title">Weight:</p>
+                <p className="modal-info-text">{actualPokemon.weight} <keygen /></p>
+                <p className="modal-info-text">
+                  {(actualPokemon.weight * 2.205).toFixed(1)} lbs
+                </p>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
