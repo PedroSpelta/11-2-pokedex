@@ -4,7 +4,7 @@ import './modal.css';
 import { useState, useEffect, useRef } from 'react';
 import Pokedex from './components/pokedex';
 import Modal from './components/modal';
-
+import LeftNav from './components/leftnav';
 
 export default function App() {
   const [showModal, setShowModal] = useState(false);
@@ -13,13 +13,16 @@ export default function App() {
     setShowModal((prev) => !prev);
   };
   return (
-    <div className="pokedex-container">
-      <Pokedex showModal={openModal} setActualPokemon={setActualPokemon} />
-      <Modal
-        actualPokemon={actualPokemon}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
+    <div className="main">
+      <LeftNav />
+      <div className="pokedex-container">
+        <Pokedex showModal={openModal} setActualPokemon={setActualPokemon} />
+        <Modal
+          actualPokemon={actualPokemon}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      </div>
     </div>
   );
 }
