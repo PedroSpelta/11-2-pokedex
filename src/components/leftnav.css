@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+}
+.nav-div {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  border: black 1px solid;
+  background-color: rgb(129, 129, 129);
+}
+
+.nav-div label{
+  margin-left: 40px;
+  font-size: 18px;
+}
