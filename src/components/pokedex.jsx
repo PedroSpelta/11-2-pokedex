@@ -1,6 +1,7 @@
 
 import pokemons from '../data';
 import Pokemon from '../components/pokemon'
+import { useEffect, useState } from 'react';
 
 function Pokedex({ showModal, setActualPokemon }) {
   // const [pokeList, setPokeList] = useState([]);
@@ -8,7 +9,19 @@ function Pokedex({ showModal, setActualPokemon }) {
   // useEffect(() => {
   //   // audio.play();
   // });
-  return pokemons.map((pokemon) => (
+  const [pList, setPList] = useState([]);
+  const [ran, setRan] = useState(false);
+  useEffect(() => {
+    if(!ran) {
+      setRan(true);
+      fetch('https://pokeapi.co/api/v2/pokedex/7/')
+      .then((res) => res.json())
+      .then((json) => {
+        setPList(json.pokemon_entries)
+      })
+    } 
+  })
+  return pList.map((pokemon) => (
     <div key={pokemon.pokemon_species.name}>
       <Pokemon
         setActualPokemon={setActualPokemon}

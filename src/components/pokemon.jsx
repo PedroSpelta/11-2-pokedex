@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import element from '../elements';
 import pokeball from '../images/pokeball.png';
 
 function Pokemon(props) {
-  const { name, showModal, setActualPokemon } = props;
+  const { name, showModal, setActualPokemon} = props;
   const [pokeInfo, setPokeInfo] = useState({});
   const [isActive, setIsActive] = useState(true);
   useEffect(() => {
