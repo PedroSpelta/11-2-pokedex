@@ -8,6 +8,7 @@ function Pokedex({ showModal, setActualPokemon, selectedElement }) {
   //   // audio.play();
   // });
   const [pokemonList, setPokemonList] = useState([]);
+  const [notLoaded, setNotLoaded] = useState(true)
   useEffect(() => {
     async function fetchPokemon() {
       const pokedexResponse = await fetch(
@@ -52,9 +53,13 @@ function Pokedex({ showModal, setActualPokemon, selectedElement }) {
         });
       }
       setPokemonList(list);
+      setNotLoaded(false);
     }
     fetchPokemon();
   }, []);
+
+  if(notLoaded) return <h1>Carregando</h1>
+
   return pokemonList.map(
     (pokemon) =>
       (selectedElement.includes(pokemon.type) || selectedElement.includes(pokemon.type2)) && (
