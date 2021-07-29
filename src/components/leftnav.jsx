@@ -1,19 +1,22 @@
 import './leftnav.css';
 import element from '../elements';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function CheckBoxElement({ text, selectedElem, setSelectedElem }) {
   return (
-    <label
-      onChange={(event) => {
-        if (event.target.checked) {
-          setSelectedElem([...selectedElem, event.target.name]);
-          return;
-        }
-        setSelectedElem(selectedElem.filter((e) => e !== event.target.name));
-      }}
-    >
-      <input name={text} type="checkbox" />
+    <label>
+      <input
+        name={text}
+        type="checkbox"
+        checked={selectedElem.includes(text) ? true : false}
+        onChange={(event) => {
+          if (event.target.checked) {
+            setSelectedElem([...selectedElem, event.target.name]);
+            return;
+          }
+          setSelectedElem(selectedElem.filter((e) => e !== event.target.name));
+        }}
+      />
       {`${text[0].toUpperCase()}${text.slice(1)}`}
     </label>
   );
@@ -21,18 +24,18 @@ function CheckBoxElement({ text, selectedElem, setSelectedElem }) {
 
 const elementArray = Object.keys(element);
 
-function LeftNav(props) {
-  const [selectedElem, setSelectedElem] = useState([]);
+function LeftNav({ selectedElement, setSelectedElement }) {
   return (
     <div className="nav-div">
       {elementArray.map((elem) => (
         <CheckBoxElement
           key={elem}
-          selectedElem={selectedElem}
-          setSelectedElem={setSelectedElem}
+          selectedElem={selectedElement}
+          setSelectedElem={setSelectedElement}
           text={elem}
         />
       ))}
+      <button onClick={() => setSelectedElement([])}> teste </button>
     </div>
   );
 }

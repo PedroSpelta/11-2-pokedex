@@ -4,7 +4,6 @@ import pokeball from '../images/pokeball.png';
 
 function Pokemon(props) {
   const { showModal, setActualPokemon, pokeInfo} = props;
-  useEffect(() => console.log('pokemon'))
   return (
     <div
       onClick={() => {
