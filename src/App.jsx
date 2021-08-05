@@ -14,6 +14,7 @@ export default function App() {
   const [actualPokemon, setActualPokemon] = useState({ id: 1 });
   const [selectedElement, setSelectedElement] = useState(elementArray);
   const [showLeftNav, setShowLeftNav] = useState(true);
+  const [nameFilter, setNameFilter] = useState('');
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
@@ -24,6 +25,8 @@ export default function App() {
         setSelectedElement={setSelectedElement}
         showLeftNav={showLeftNav}
         setShowLeftNav={setShowLeftNav}
+        nameFilter={nameFilter}
+        setNameFilter={setNameFilter}
       />
       <div
         className={`pokedex-container ${showLeftNav ? null : 'left-nav-open'}`}
@@ -31,6 +34,7 @@ export default function App() {
         <Pokedex
           showModal={openModal}
           selectedElement={selectedElement}
+          nameFilter={nameFilter}
           setActualPokemon={setActualPokemon}
           showLeftNav={showLeftNav}
         />

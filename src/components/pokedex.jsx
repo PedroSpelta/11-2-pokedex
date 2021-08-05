@@ -1,7 +1,7 @@
 import Pokemon from '../components/pokemon';
 import { useEffect, useState } from 'react';
 
-function Pokedex({ showModal, setActualPokemon, selectedElement }) {
+function Pokedex({ showModal, setActualPokemon, selectedElement,nameFilter }) {
   // const [pokeList, setPokeList] = useState([]);
   // const [audio] = useState(new Audio('/backgroundmsc.mp3'))
   // useEffect(() => {
@@ -65,7 +65,7 @@ function Pokedex({ showModal, setActualPokemon, selectedElement }) {
       {pokemonList.map(
         (pokemon) =>
           (selectedElement.includes(pokemon.type) ||
-            selectedElement.includes(pokemon.type2)) && (
+            selectedElement.includes(pokemon.type2)) && (pokemon.name.includes(nameFilter.toLowerCase()) || String(pokemon.id).includes(nameFilter)) && (
             <div key={pokemon.index}>
               <Pokemon
                 setActualPokemon={setActualPokemon}

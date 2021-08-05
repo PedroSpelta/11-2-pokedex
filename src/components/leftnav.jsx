@@ -3,7 +3,11 @@ import element from '../elements';
 import { FaArrowRight } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
 
-function CheckBoxElement({ text, selectedElem, setSelectedElem }) {
+function CheckBoxElement({
+  text,
+  selectedElem,
+  setSelectedElem
+}) {
   return (
     <label>
       <input
@@ -30,6 +34,8 @@ function LeftNav({
   setSelectedElement,
   showLeftNav,
   setShowLeftNav,
+  nameFilter,
+  setNameFilter
 }) {
   return (
     <>
@@ -43,6 +49,7 @@ function LeftNav({
         className="nav-div"
         style={showLeftNav ? {} : { marginLeft: '-200px' }}
       >
+        <input type="text" value={nameFilter} placeholder="Pokemon name" onChange={(event) => setNameFilter(event.target.value) }/>
         <div className="close-left-nav">
           <IoMdClose onClick={() => setShowLeftNav(!showLeftNav)} />
         </div>
