@@ -168,14 +168,17 @@
 }
 
 .modal-stat-title {
-  font-weight: bold;
+  font-family: Verdana;
   margin: 1px 4px;
   font-size: 18px;
+  color: rgb(78, 78, 78);
 }
 
 .modal-stat-num {
+  font-family: Verdana;
   margin: 1px 20px 1px 0;
   font-size: 18px;
+  font-weight: 800;
 }
 
 .modal-radar {

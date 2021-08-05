@@ -6,7 +6,7 @@ import Pokedex from './components/pokedex';
 import Modal from './components/modal';
 import LeftNav from './components/leftnav';
 import element from './elements';
-import { IoMdClose } from 'react-icons/io';
+import { FaArrowRight} from 'react-icons/fa';
 const elementArray = Object.keys(element);
 
 export default function App() {
@@ -34,13 +34,13 @@ export default function App() {
           setActualPokemon={setActualPokemon}
           showLeftNav={showLeftNav}
         />
+      </div>
         <Modal
           actualPokemon={actualPokemon}
           showModal={showModal}
           setShowModal={setShowModal}
           showLeftNav={showLeftNav}
         />
-      </div>
     </div>
   );
 }

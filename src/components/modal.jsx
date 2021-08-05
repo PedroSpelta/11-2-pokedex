@@ -17,14 +17,22 @@ function Modal({ showModal, setShowModal, actualPokemon, showLeftNav }) {
           actualPokemon.spatk,
           actualPokemon.atk,
         ],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: 'rgba(255, 99, 132, 0.4)',
         borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
+        borderWidth: 2,
       },
     ],
   };
 
   const options = {
+    elements: {
+      line: {
+        backgroundColor:'green',
+      },
+      point: {
+        radius: 0,
+      }
+    },
     plugins: {
       legend: {
         display: false,
@@ -42,12 +50,19 @@ function Modal({ showModal, setShowModal, actualPokemon, showLeftNav }) {
     },
     scales: {
       r: {
+        angleLines:{
+          color: 'rgba(0,0,0,0.3)'
+        },
+        grid:{
+          color: 'rgba(0,0,0,0.3)'
+        },
         ticks: {
           display: false,
         },
         pointLabels: {
           font: {
             size: 13,
+            family:'verdana',
             weight: 'bold',
           },
         },
@@ -96,7 +111,7 @@ function Modal({ showModal, setShowModal, actualPokemon, showLeftNav }) {
             </div>
           </div>
           <div className="modal-pokemon-status">
-            <p className="modal-poke-s-name">Nº{actualPokemon.id}</p>
+            <p className="modal-poke-s-name">#{actualPokemon.id}</p>
             <div className="modal-abilities-div">
               <p className="modal-info-title">Abilities:</p>
               <p className="modal-info-text">{actualPokemon.ability1}</p>
