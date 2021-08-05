@@ -3,6 +3,13 @@
   padding: 0;
 }
 
+body {
+  background-color: #4fb7fc;
+}
+
+.main {
+}
+
 .pokemon-container {
   border: 1px solid rgb(102, 102, 102);
   display: flex;
@@ -16,12 +23,13 @@
   z-index:-2;
 }
 
+
 .pokedex-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-left: 200px;
-  gap: 10px;
+  gap: 20px;
 }
 
 .left-nav-open {
