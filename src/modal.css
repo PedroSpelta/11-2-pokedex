@@ -15,18 +15,18 @@
 
 .modal-div {
   background-color: white;
-  width: 400px;
-  height: 450px;
+  width: 550px;
+  height: 550px;
 }
 
 .modal-pokemon-img {
-  width:180px;
-  height: 180px;
+  width:230px;
+  height: 230px;
   border: 3px solid rgb(0, 0, 0, 0.2);
 }
 
 .modal-pokemon-name {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 900;
   font-family: 'Montserrat', sans-serif;
 }
@@ -47,8 +47,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 180px;
+  height: 90px;
+  width: 230px;
 }
 
 .modal-pokemon-id {
@@ -57,7 +57,7 @@
   display: inline-block;
   position: absolute;
   text-align: center;
-  font-size: 82px;
+  font-size: 120px;
   line-height: 60px;
   width: 180px;
   color: rgba(0, 0, 0, 0.2);
@@ -66,12 +66,12 @@
 .modal-pokemon-type {
   font-family: 'Montserrat', sans-serif;
   border: 1.5px solid black;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 5px;
+  padding: 1px 7px;
   border-radius: 10px;
   margin: 0px 5px 0 5px;
   z-index: 2;
@@ -92,16 +92,16 @@
 
 .filter {
   position: absolute;
-  width: 180px;
-  height: 180px;
-  opacity: 0.05;
+  width: 230px;
+  height: 230px;
+  opacity: 0.17;
   margin: 2px;
 }
 
 .modal-poke-s-name {
   color: #5E5E5E;
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 43px;
 }
 
 
@@ -120,13 +120,14 @@
   color: white;
   font-family: Verdana;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .modal-info-text {
   color: #666666;
   font-family: Verdana;
   font-weight: 500;
+  font-size: 15px;
 }
 
 .modal-hw-spacer {
@@ -139,8 +140,8 @@
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  margin: 15px 0px 15px 0px;
-  padding-left: 25px;
+  margin: 20px 0px 20px 0px;
+  padding-left: 60px;
 }
 
 .modal-type-div {
@@ -150,7 +151,7 @@
 .modal-chart {
   display: flex;
   align-items: center;
-  height: 200px;
+  height: 225px;
   justify-content: space-between;
 }
 
@@ -169,10 +170,12 @@
 .modal-stat-title {
   font-weight: bold;
   margin: 1px 4px;
+  font-size: 18px;
 }
 
 .modal-stat-num {
   margin: 1px 20px 1px 0;
+  font-size: 18px;
 }
 
 .modal-radar {

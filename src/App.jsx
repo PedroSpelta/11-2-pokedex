@@ -6,6 +6,7 @@ import Pokedex from './components/pokedex';
 import Modal from './components/modal';
 import LeftNav from './components/leftnav';
 import element from './elements';
+import { IoMdClose } from 'react-icons/io';
 const elementArray = Object.keys(element);
 
 export default function App() {
@@ -24,7 +25,9 @@ export default function App() {
         showLeftNav={showLeftNav}
         setShowLeftNav={setShowLeftNav}
       />
-      <div className={`pokedex-container ${showLeftNav ? null : "left-nav-open"}`} >
+      <div
+        className={`pokedex-container ${showLeftNav ? null : 'left-nav-open'}`}
+      >
         <Pokedex
           showModal={openModal}
           selectedElement={selectedElement}

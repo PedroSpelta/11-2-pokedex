@@ -127,13 +127,13 @@ function Modal({ showModal, setShowModal, actualPokemon, showLeftNav }) {
           <Radar
             className="modal-radar"
             data={data}
-            width={200}
-            height={200}
+            width={240}
+            height={240}
             options={options}
           />
           <div className="modal-chart-status">
             <div>
-              <p className="modal-stat-title">HP: </p>
+              <p className="modal-stat-title">HP:</p>
               <p className="modal-stat-num">{actualPokemon.hp}</p>
             </div>
             <div>
