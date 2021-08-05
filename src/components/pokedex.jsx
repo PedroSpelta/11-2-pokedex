@@ -58,7 +58,7 @@ function Pokedex({ showModal, setActualPokemon, selectedElement }) {
     fetchPokemon();
   }, []);
 
-  if(notLoaded) return <h1>Carregando</h1>
+  if(notLoaded) return <h1>Loading</h1>
 
   return pokemonList.map(
     (pokemon) =>

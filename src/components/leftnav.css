@@ -9,9 +9,35 @@
   height: 100vh;
   border: black 1px solid;
   background-color: rgb(129, 129, 129);
+  transition: margin 0.5s;
 }
 
 .nav-div label{
   margin-left: 40px;
   font-size: 18px;
+}
+
+.open-nav-button {
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgb(48, 48, 48);
+  /* To make a flex div respect the width add flex shrink
+  https://stackoverflow.com/questions/21406397/width-ignored-on-flexbox-items/21413841
+  */
+  flex-basis: 40px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-top: 60px;
+  border-radius: 0px 50px 50px 0px;
+  background-color: rgb(107, 107, 107);
+}
+
+.close-left-nav {
+  right: 12px;
+  top:12px;
+  font-size: 25px;
+  position: absolute;
+
 }

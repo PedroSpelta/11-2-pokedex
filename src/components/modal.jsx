@@ -3,7 +3,7 @@ import filter from '../images/filter.png';
 import { Radar } from 'react-chartjs-2';
 import { useRef } from 'react';
 
-function Modal({ showModal, setShowModal, actualPokemon }) {
+function Modal({ showModal, setShowModal, actualPokemon, showLeftNav }) {
   const modalRef = useRef();
   const data = {
     labels: 'HP DEF SP.DEF SPEED SP.ATK ATK'.split(' '),
@@ -62,7 +62,7 @@ function Modal({ showModal, setShowModal, actualPokemon }) {
     }
   };
   return showModal ? (
-    <div className="modal-background" ref={modalRef} onClick={closeModal}>
+    <div className={`modal-background ${showLeftNav ? 'modal-compressed': null}`} ref={modalRef} onClick={closeModal}>
       <div className="modal-div">
         <div className="modal-pokemon-visual-black">
           <div className="modal-pokemon-visual">

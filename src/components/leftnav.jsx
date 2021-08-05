@@ -1,6 +1,7 @@
 import './leftnav.css';
 import element from '../elements';
-import { useEffect, useState } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
 
 function CheckBoxElement({ text, selectedElem, setSelectedElem }) {
   return (
@@ -24,19 +25,38 @@ function CheckBoxElement({ text, selectedElem, setSelectedElem }) {
 
 const elementArray = Object.keys(element);
 
-function LeftNav({ selectedElement, setSelectedElement }) {
+function LeftNav({
+  selectedElement,
+  setSelectedElement,
+  showLeftNav,
+  setShowLeftNav,
+}) {
   return (
-    <div className="nav-div">
-      {elementArray.map((elem) => (
-        <CheckBoxElement
-          key={elem}
-          selectedElem={selectedElement}
-          setSelectedElem={setSelectedElement}
-          text={elem}
-        />
-      ))}
-      <button onClick={() => setSelectedElement([])}> teste </button>
-    </div>
+    <>
+      <button
+        className="open-nav-button"
+        onClick={() => setShowLeftNav(!showLeftNav)}
+      >
+        <FaArrowRight size={'22px'} />
+      </button>
+      <div
+        className="nav-div"
+        style={showLeftNav ? {} : { marginLeft: '-200px' }}
+      >
+        <div className="close-left-nav">
+          <IoMdClose onClick={() => setShowLeftNav(!showLeftNav)} />
+        </div>
+        {elementArray.map((elem) => (
+          <CheckBoxElement
+            key={elem}
+            selectedElem={selectedElement}
+            setSelectedElem={setSelectedElement}
+            text={elem}
+          />
+        ))}
+        <button onClick={() => setSelectedElement([])}> teste </button>
+      </div>
+    </>
   );
 }
 

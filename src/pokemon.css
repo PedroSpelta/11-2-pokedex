@@ -24,6 +24,10 @@
   gap: 10px;
 }
 
+.left-nav-open {
+  margin-left: 0px;
+}
+
 .poke-ball {
   position: absolute;
   width: 150px;
